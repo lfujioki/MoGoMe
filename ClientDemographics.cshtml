@@ -1,0 +1,428 @@
+﻿@model  Client.Web.Models.ViewModels.ItemViewModel<int?>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAce.cshtml";
+}
+
+
+<div class="page-header">
+    <h1>Demographics Two <span id="title-id">@Model.Item</span></h1>
+</div>
+
+<div class="col-sm-12">
+    <form id="demographics-form" class="form-horizontal" role="form">
+        <input type="hidden" id="demog-id" name="demog-id" value="@Model.Item">
+        <div class="space-4"></div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="HasChildren">Do you have children?</label>
+            <div class="col-sm-9">
+                <div>
+                    <label for="children-yes" class="line-height-1">
+                        <input type="radio" class="ace" id="children-yes" name="HasChildren" value="true">
+                        <span class="lbl">
+                            Yes &nbsp;
+                        </span>
+                    </label>
+                </div>
+                <div>
+                    <label for="children-no" class="line-height-1">
+                        <input type="radio" class="ace" id="children-no" name="HasChildren" value="false">
+                        <span class="lbl">
+                            No
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="childrenCount">If Yes, enter number of children</label>
+            <div class="col-xs-12 col-sm-9">
+                <div>
+                    <span class="input-icon input-icon">
+                        <input type="number" id="childrenCount" class="form-control" min="1" max="10" name="ChildrenCount" placeholder="0" disabled>
+                        <i class="ace-icon fa fa-child grey"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="HasMilitary">Do you have Military Experience?</label>
+            <div class="col-xs-12 col-sm-9">
+                <div>
+                    <label for="military-yes" class="line-height-1">
+                        <input type="radio" class="ace" id="military-yes" name="HasMilitary" value="true">
+                        <span class="lbl">
+                            Yes &nbsp;
+                        </span>
+                    </label>
+                </div>
+                <div>
+                    <label for="military-no" class="line-height-1">
+                        <input type="radio" class="ace" id="military-no" name="HasMilitary" value="false">
+                        <span class="lbl">
+                            No
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="militaryStatusTypeId">If Yes, enter Military Status</label>
+            <div class="col-xs-12 col-sm-9">
+                <span class="input-icon input-icon">
+                    <select class="form-control placeholder" id="militaryStatusTypeId" name="MilitaryStatusTypeId" disabled>
+                        <option value="">Click to Choose...</option>
+                        <option value="1">Active Duty</option>
+                        <option value="2">Not on Active Duty</option>
+                        <option value="3">Deactivated</option>
+                        <option value="4">Retired</option>
+                        <option value="5">Other</option>
+                    </select>
+                    <i class="ace-icon fa fa-shield grey"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="educationLevelId">Education Level</label>
+            <div class="col-xs-12 col-sm-9">
+                <span class="input-icon">
+                    <select id="educationLevelId" class="form-control placeholder" name="EducationLevelId">
+                        <option value="">Click to Choose...</option>
+                        <option value="1">High School Diploma/GED</option>
+                        <option value="2">Some College</option>
+                        <option value="3">Associate's Degree</option>
+                        <option value="4">Bachelor's Degree</option>
+                        <option value="5">Master's Degree</option>
+                        <option value="6">Doctorate Degree</option>
+                        <option value="7">Other</option>
+                    </select>
+                    <i class="ace-icon fa fa-graduation-cap pink"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="txt-birth-city">Place of Birth</label>
+            <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                    <span class="input-icon">
+                        <input class="input-large" type="text" id="txt-birth-city" name="BirthCity" placeholder="Enter City">
+                        <i class="ace-icon fa fa-map-marker green"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="state">State</label>
+            <div class="col-xs-12 col-sm-9">
+                <span class="input-icon">
+                    <select class="form-control placeholder address-state" id="birthStateId" name="BirthStateId"></select>
+                    <i class="ace-icon fa fa-map-marker green"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="languageId">Primary Language Spoken</label>
+            <div class="col-xs-12 col-sm-9">
+                <span class="input-icon">
+                    <select class="form-control placeholder" id="languageId" name="LanguageId">
+                        <option value="">Click to Choose...</option>
+                        <option value="1">English</option>
+                        <option value="2">Spanish</option>
+                        <option value="3">Mandarin</option>
+                        <option value="4">Hindi</option>
+                        <option value="5">Arabic</option>
+                        <option value="6">Other</option>
+                    </select>
+                    <i class="ace-icon fa fa-comments orange"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <div class="clearfix form-actions center">
+                    <div class="col-sm-offset-3 col-sm-1">
+                        <button class="btn btn-info" type="button" id="cmdSubmit">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Client/services/client.services.demographics.js"></script>
+
+    <script type="text/javascript">
+        client.page.startUp = function () {
+            client.page.demographicsId = $('#demog-id').val();
+            client.page.onLoadForm(client.page.demographicsId);
+
+            client.page.initializeValidation();
+
+            $('#cmdSubmit').on('click', client.page.handlers.onFormSubmit);
+            $('#children-yes, #children-no').on('click', client.page.handlers.onShowChildrenCount);
+            $('#military-yes, #military-no').on('click', client.page.handlers.onShowMilitaryStatusTypeId);
+        };
+
+        client.page.onLoadForm = function (demographicsId) {
+            if (demographicsId) {
+                client.services.demographics.get(demographicsId, client.page.onGetDemoByIdSuccess,
+                    client.page.onGetDemoByIdError);
+            }
+        }
+
+        client.page.handlers.onShowChildrenCount = function () {
+            var radio = $('input[name=HasChildren]:checked').val();
+            if (radio === 'true') {
+                $('input[name=ChildrenCount]').removeAttr('disabled');
+                $('i.fa-child').removeClass('grey')
+                $('i.fa-child').addClass('orange')
+            }
+            else {
+                $('input[name=ChildrenCount]').prop('disabled', true);
+                $('input[name=ChildrenCount]').val(null);
+                $('i.fa-child').removeClass('orange')
+                $('i.fa-child').addClass('grey')
+            }
+        }
+
+        client.page.handlers.onShowMilitaryStatusTypeId = function () {
+            var radio = $('input[name=HasMilitary]:checked').val();
+            if (radio === 'true') {
+                $('select[name=MilitaryStatusTypeId]').removeAttr('disabled');
+                $('i.fa-shield').removeClass('grey')
+                $('i.fa-shield').addClass('blue')
+            }
+            else {
+                $('select[name=MilitaryStatusTypeId]').prop('disabled', true);
+                $('select[name=MilitaryStatusTypeId]').val(null);
+                $('i.fa-shield').removeClass('blue')
+                $('i.fa-shield').addClass('grey')
+            }
+        }
+
+        client.page.initializeValidation = function () {
+            jQuery.validator.setDefaults({
+                debug: true
+            });
+
+            $('#demographics-form').validate({
+                errorElement: 'div',
+                errorClass: 'help-block',
+                focusInvalid: false,
+                ignore: "",
+                rules: {
+                    'HasChildren': {
+                        required: true
+                    },
+                    'ChildrenCount': {
+                        required: true,
+                    },
+                    'HasMilitary': {
+                        required: true
+                    },
+                    'MilitaryStatusTypeId': {
+                        required: true
+                    },
+                    'EducationLevelId': {
+                        required: true
+                    },
+                    'BirthCity': {
+                        required: true,
+                        maxlength: 50
+                    },
+                    'BirthStateId': {
+                        required: true
+                    },
+                    'LanguageId': {
+                        required: true
+                    }
+                },
+                messages: {
+                    'HasChildren': {
+                        required: "Please choose yes or no.",
+                    },
+                    'ChildrenCount': {
+                        required: "Please enter number of children."
+                    },
+                    'HasMilitary': {
+                        required: "Please choose yes or no."
+                    },
+                    'MilitaryStatusTypeId': {
+                        required: "Please choose military status type."
+                    },
+                    'EducationLevelId': {
+                        required: "Please choose education level."
+                    },
+                    'BirthCity': {
+                        required: "Please enter city.",
+                        maxlength: "Please enter city name less than 50 characters."
+                    },
+                    'BirthStateId': {
+                        required: "Please choose state.",
+                    },
+                    'LanguageId': {
+                        required: "Please choose primary language.",
+                    }
+                },
+                highlight: function (e) {
+                    $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+                },
+                success: function (e) {
+                    $(e).closest('.form-group').removeClass('has-error');//.addClass('has-info');
+                    $(e).remove();
+                },
+                errorPlacement: function (error, element) {
+                    if (element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
+                        var controls = element.closest('div[class*="col-"]');
+                        if (controls.find(':checkbox,:radio').length > 1) controls.append(error);
+                        else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
+                    }
+                    else {
+                        error.insertAfter(element.parent());
+                    }
+                },
+                submitHandler: function (form) {
+                },
+                invalidHandler: function (form) {
+                }
+            });
+        };
+
+        client.page.handlers.onFormSubmit = function () {
+            var isValid = $('#demographics-form').valid();
+            if (!isValid) {
+                return;
+            }
+
+            // Disable submit button on submitting form
+            $("button[type=button]").prop('disabled', true);
+            $("button[type=button]").html('Submitting...');
+
+            var myData = $("#demographics-form").serialize();
+
+            if (client.page.demographicsId) {
+                myData += "&Id=" + client.page.demographicsId;
+
+                client.services.demographics.update(client.page.demographicsId, myData,
+                    client.page.onPutDemoByIdSuccess, client.page.onPutDemoByIdError);
+            }
+            else {
+                client.services.demographics.add(myData, client.page.onPostDemoSuccess,
+                    client.page.onPostDemoError);
+            }
+        };
+
+        client.page.onPostDemoSuccess = function (data, status, xhr) {
+            if (data && data.item) {
+                client.page.saveDemographicsId(data.item);
+
+                // Enable button after submit form returns successful
+                $("button[type=button]").removeAttr('disabled');
+                $("button[type=button]").html('<i class="ace-icon fa fa-check bigger-110"></i>Submit');
+            }
+            else {
+                console.log("onPostDemoSuccess data did not return a valid object");
+            }
+        };
+
+        client.page.onPostDemoError = function (jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+        };
+
+        client.page.onGetDemoByIdSuccess = function (data, status, xhr) {
+            if (data) {
+                console.log(data);
+                client.page.demographicsItem = data.item;
+                client.page.onGetDemographicSuccess(data.item);
+
+                // Enable button after submit form returns successful
+                $("button[type=button]").removeAttr('disabled');
+                $("button[type=button]").html('<i class="ace-icon fa fa-check bigger-110"></i>Submit');
+            }
+            else {
+                console.log("onGetDemoByIdSuccess data did not return a valid object");
+            }
+        };
+
+        client.page.onGetDemoByIdError = function (jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+        };
+
+        client.page.onPutDemoByIdSuccess = function (data, status, xhr) {
+            if (data) {
+                console.log(data);
+                // Enable button after submit form returns successful
+                $("button[type=button]").removeAttr('disabled');
+                $("button[type=button]").html('<i class="ace-icon fa fa-check bigger-110"></i>Submit');
+            }
+            else {
+                console.log("onPutDemoByIdSuccess data did not return a valid object");
+            }
+        };
+
+        client.page.onPutDemoByIdError = function (jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+        };
+
+        client.page.saveDemographicsId = function (currentId) {
+            client.page.demographicsId = currentId;
+            $('#demog-id').attr('value', client.page.demographicsId);
+            $('#title-id').html(client.page.demographicsId);
+        }
+
+        client.page.onGetDemographicSuccess = function (currentDemog) {
+            if (!currentDemog.hasChildren) {
+                $('#children-no').prop('checked', true);
+            }
+            else {
+                $('#children-yes').prop('checked', true);
+                $('input[name=ChildrenCount]').removeAttr('disabled');
+                $('i.fa-child').removeClass('grey')
+                $('i.fa-child').addClass('orange')
+            }
+
+            $('#childrenCount').val(currentDemog.childrenCount);
+
+            if (!currentDemog.hasMilitary) {
+                $('#military-no').prop('checked', true);
+            }
+            else {
+                $('#military-yes').prop('checked', true);
+                $('select[name=MilitaryStatusTypeId]').removeAttr('disabled');
+                $('i.fa-shield').removeClass('grey')
+                $('i.fa-shield').addClass('blue')
+            }
+
+            $('#militaryStatusTypeId').val(currentDemog.militaryStatusTypeId);
+
+            $('#educationLevelId').val(currentDemog.educationLevelId);
+
+            $('#txt-birth-city').val(currentDemog.birthCity);
+
+            $('#birthStateId').val(currentDemog.birthStateId);
+
+            $('#languageId').val(currentDemog.languageId);
+        }
+
+    </script>
+}
+
+
